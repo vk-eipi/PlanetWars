@@ -1,0 +1,95 @@
+Case Studies:
+	FirstSuccess
+		stawberry(L), 7294644 : attacked 98s1G leads to insufficient resources
+		Cyberdogs7(W), 7341844: attacked 74s5G instead of 23s5G 2 units farther; why still won?
+		Dazibao(W), 7371746: lower production rate t27-t43 but caught up; rallying at enemy weak point; backdoor thru topright 48sG5
+		mscava(L), 7381190: rapid defeat; close combat; t13 snipes
+		_aivi_(L), 7530327: despite initial expansion, seemingly successful, still lost
+	firstbot
+		local:
+			Dualbot:original maps 26, 30, 44, 27
+					new maps 9, 12, 27, 32, 42, 44
+			Ragebot:original maps 5, 20, 21, 22, 26, 30, 61, 82, 84, 90, 99
+					new maps 1, 14, 38, 44
+	profitbot
+		local:
+			lookahead 34 vs starter_dist*2: (2,12,14,20,26,29,35,36,44), (1,5,11,30,43,48)
+	rallybot:
+		local:
+			profitbot:	with fraction=1.0: 27w, 23l
+						with fraction=0.5: 30w, 20l
+	frontlines-score:
+		JustJob(L), 9474145: was leading but lost eventually
+
+Bugs:
+	frontlines code in universe_custom2 crashes when my_planets == 0 (because min on zero-length arg)
+
+CAUTION: improvements may make bot too defensive (or aggressive)			
+
+Needed Improvements:
+	function to determine toAttack
+		keep for at least x turns, maybe more
+		closertoenemy -> higher toAttack
+	
+	define "neighbours"
+		enemy neighbours means planet is vulnerable, account for enemy planet ships in needed_def
+	
+	cooperation
+		use up "available" ships against specific targets
+			attack weak/profitable planets (as usual)
+			worth saving up or not?
+				if not, spam enemy
+	
+	better defensive system
+	
+Possible Issues:
+	should planets only send to front lines that will be mine?
+	non-determinism: 
+		implement Symmetric ID
+			some maps reflect across line, some across point
+		floating point distances, scores
+	
+Ideas:
+	genetic algorithm for decision variables (lookahead=a+b*starter_distance, if score < LIMIT:don't do, scoring heuristics)
+	
+	account for clusters (mutual def if control both, sneakattack if control one)
+		define cluster as 
+		"for some p, for each n in p.neighbours, 
+		n.neighbours == (p.neigbours|p - n)"
+	enemy ship streams for prediction
+	
+	different behaviour when ahead in all areas (cancel out ships) and ahead in production but not ships (avoid losing production and capturing neutrals)
+	
+	"stops" along path to increase flexibility
+		AB + BC <= AC + max_offset
+	system for reserving ships for specific purposes
+		both current and future ships, though future should account for disruption
+		conflicting orders resolved by priority / profit
+
+Completed:
+	break even point
+	rallying (eliminated)
+	front line planets
+	rough scoring heuristic
+	future state analysis
+	
+	(Old lines)
+	pre-attack analysis:
+		~calculation/analysis of profit
+			total production/ships: heuristic?
+			#break even point
+		~enemy / friendly fleets already heading there
+			!let enemy absorb neutral damage
+		#enemy planet growth
+	rallying point: centralized to map? enemy sector? friendly sector?
+		options:
+			map center
+				access to all sides, but if action in corners, may be too distant
+			enemy sector
+				easy to attack enemy (see 7371746), but will change hands quickly
+			friendly sector
+				simple rallying point, defensible, but far from action
+			
+		units can be sent out in larger chunks without much programming
+		cons: larger fleet size may mean less flexibility (not sure)
+	"buffer zone", supplied by main industry and capable of defending

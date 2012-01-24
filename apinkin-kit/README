@@ -1,0 +1,42 @@
+This package in an alternative python starter kit for Planet Wars AI Challenge.
+
+http://ai-contest.com/
+
+MyBot.py is a sample bot - feel free to modify and test your changes.
+
+Requirements:
+
+* Python 2.5
+* Java 1.6
+
+[1] To run a game against a DualBot on map 5, run
+
+$ ./dual.sh 5
+
+Take a look at the log: MyBot.log
+
+
+[2] To play all sample bots on all 100 maps, run
+
+$ ./batch.sh
+
+This will take a few minutes to run..
+
+[3] To play other people's bots in REAL TIME without having to submit
+your code to the contest server, compile TCP.java run
+
+$ javac TCP.java 
+$ ./tcp.sh
+
+See http://www.benzedrine.cx/planetwars/ for more details. 
+Thanks dhartmei for setting up the server!
+
+[4] To replay a game locally after is has been played on the server, run
+replay.sh script and pass game page URL as a parameter. 
+This is very useful for debugging your bot.
+
+$ ./replay.sh http://ai-contest.com/visualizer.php?game_id=4607627
+
+Enjoy, and good luck on the battlefield!
+
+-RebelXT
