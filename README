@@ -1,5 +1,18 @@
 OUAC# 2012-156363
 
-During the progress of my work on the Fall 2010 Google AI Challenge, I switched from using the default Python starter package to using the one offered by Alex Pinkin at http://github.com/apinkin/planetwars-python-kit .
+During the progress of my work on the Fall 2010 Google AI Challenge, I switched from using the default Python starter package to using the one offered by Alex Pinkin at http://github.com/apinkin/planetwars-python-kit . At that point, I ceased to use the python_starter_package directory and exclusively worked in the apinkin-kit directory.
 
+planetwars_thoughts.txt keeps track of my notes, issues, goals, etc.
+The vast majority of my work is located in the apinkin-kit directory.
 
+Bot Versions (all in apinkin-kit), oldest to newest:
+firstbot
+cautiousbot (cautiousbot-v0, cautiousbot-v1)
+profitbot (modprofitbot)
+scorebot, rallybot
+frontlinesbot (modfrontlinesbot, mod2frontlinesbot, mod3frontlinesbot)
+
+Username: VK_eipi
+Rank: 363/4619 (top 8%)
+Description:
+"For this competition, I spent around two weeks working on a bot to play a strategy game (based on Galcon) against other bots programmed by competitors, the gameplay of which revolved around the seizing of sources of troop production. My own bot was written in Python. There were many skills I managed to learn from this experience, as it was quite different from what I had done before. I had to use object-oriented programming, back up files with an improvised linear version-control system, debug through a standard logging library, adapt simple shell scripts for my own use, and incorporate code written by others (through starter kits). I also learned dynamic programming in order to solve the knapsack problem."
