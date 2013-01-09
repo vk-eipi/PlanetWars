@@ -1,4 +1,5 @@
-OUAC# 2012-156363
+= Fall 2010 Google AI Challenge: Planet Wars =
+(see http://planetwars.aichallenge.org for details)
 
 During the progress of my work on the Fall 2010 Google AI Challenge, I switched from using the default Python starter package to using the one offered by Alex Pinkin at http://github.com/apinkin/planetwars-python-kit . At that point, I ceased to use the python_starter_package directory and exclusively worked in the apinkin-kit directory.
 
